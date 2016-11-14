@@ -7,15 +7,20 @@
     <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <style media="screen">
-/** {
+    /** {
     outline: thin dashed red;
 }*/
-    * {margin: 0px;}
+
+    * {
+        margin: 0px;
+    }
+
     body {
-    display: flex;
-    justify-content: center;
+        display: flex;
+        justify-content: center;
         flex-wrap: wrap;
-}
+    }
+
     .slide-container {
         /*display: flex;*/
         /*justify-content: center;
@@ -26,24 +31,29 @@
     }
 
     .slide-button {
-    display: flex;
-    justify-content: space-between;
-    z-index: 50;
-    width: 100%;
-    text-align: center;
-    height: 100%;
-    font-size: 15em;
-    position: absolute;
-}
+        display: flex;
+        justify-content: space-between;
+        z-index: 50;
+        width: 100%;
+        text-align: center;
+        height: 100%;
+        font-size: 15em;
+        position: absolute;
+    }
+
     .slide-button-prev {
         display: flex;
-/* vertical-align: middle; */
-align-items: center;
-color: transparent;
-cursor: pointer;
+        /* vertical-align: middle; */
+        align-items: center;
+        color: transparent;
+        cursor: pointer;
     }
-    .slide-button-prev:hover {color: lightblue;
-    opacity: 0.7;}
+
+    .slide-button-prev:hover {
+        color: lightblue;
+        opacity: 0.7;
+    }
+
     .slide-button-next {
         display: flex;
         /* vertical-align: middle; */
@@ -51,69 +61,78 @@ cursor: pointer;
         color: transparent;
         cursor: pointer;
     }
-    .slide-button-next:hover {color: lightblue;
-    opacity: 0.7;}
+
+    .slide-button-next:hover {
+        color: lightblue;
+        opacity: 0.7;
+    }
 
     .slide-indicator {
         z-index: 51;
         position: absolute;
         bottom: 1em;
         width: 100%;
-text-align: center;
+        text-align: center;
     }
+
     .slide-indicator-item {
-    display: inline-block;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-    background: grey;
-    width: 1em;
-    /* height: 1em; */
-    text-align: center;
-    vertical-align: middle;
-    font-family: fantasy;
-    color: white;
-    border-radius: 50%;
-    cursor: pointer;
-}
+        display: inline-block;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+        background: grey;
+        width: 1em;
+        /* height: 1em; */
+        text-align: center;
+        vertical-align: middle;
+        font-family: fantasy;
+        color: white;
+        border-radius: 50%;
+        cursor: pointer;
+    }
 
-
-.slide-img {
-    /*z-index: 20;
+    .slide-img {
+        /*z-index: 20;
     position: absolute;*/
-    top: 0;
-    left: 0;
-    height: 40em;
-    width: 100%;
-    overflow: hidden;
-}
-img {
-    z-index: 20;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-img {
-    height: 40em;
-    width: 100%;
-    /*visibility: hidden;*/
-}
-/*.active {
+        top: 0;
+        left: 0;
+        height: 40em;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    img {
+        z-index: 20;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    img {
+        height: 40em;
+        width: 100%;
+        /*visibility: hidden;*/
+    }
+    /*.active {
     visibility: visible;
 }*/
-.active {
-    visibility: visible;
-}
-.transparent {
-    opacity: 0;
-}
-.active-dot {
-    background-color: pink;
-}
 
-* {
-    transition: all 1s;
-}
+    .active {
+        visibility: visible;
+    }
+
+    .transparent {
+        opacity: 0;
+    }
+
+    .active-dot {
+        background-color: pink;
+    }
+
+    * {
+        transition: all 1s;
+    }
 </style>
+
 <body>
     <h1>hahahahahhahahahahahha</h1>
     <div class="slide-container">
@@ -195,7 +214,7 @@ img {
             }
 
             Slide.prototype.setAnimation = function() {
-                this.aniID = setInterval((function () {
+                this.aniID = setInterval((function() {
                     this.current = (this.current + 1 + this.count) % this.count
                     this.slideflow(this.current)
                 }).bind(this), this.intervalTime)
@@ -204,12 +223,12 @@ img {
             Slide.prototype.mouseInAndMouseOut = function() {
 
                 var that = this
-                $('.slide-container').hover( (function() {
-                /*
-                 hover hover() 方法规定当鼠标指针悬停在被选元素上时要运行的两个函数。
-                 jQuery 1.7 版本前该方法触发 mouseenter 和 mouseleave 事件。
-                 jQuery 1.8 版本后该方法触发 mouseover 和 mouseout 事件。
-                */
+                $('.slide-container').hover((function() {
+                    /*
+                     hover hover() 方法规定当鼠标指针悬停在被选元素上时要运行的两个函数。
+                     jQuery 1.7 版本前该方法触发 mouseenter 和 mouseleave 事件。
+                     jQuery 1.8 版本后该方法触发 mouseover 和 mouseout 事件。
+                    */
                     clearInterval(this.aniID)
                 }).bind(this), (that.setAnimation).bind(this))
             }
