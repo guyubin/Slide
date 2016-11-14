@@ -7,15 +7,20 @@
     <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <style media="screen">
-* {
+/** {
     outline: thin dashed red;
-}
+}*/
     * {margin: 0px;}
+    body {
+    display: flex;
+    justify-content: center;
+        flex-wrap: wrap;
+}
     .slide-container {
         /*display: flex;*/
         /*justify-content: center;
         align-items: center;*/
-        width: 100%;
+        width: 80%;
         height: 40em;
         position: relative;
     }
@@ -34,13 +39,20 @@
         display: flex;
 /* vertical-align: middle; */
 align-items: center;
+color: transparent;
+cursor: pointer;
     }
+    .slide-button-prev:hover {color: lightblue;
+    opacity: 0.7;}
     .slide-button-next {
         display: flex;
         /* vertical-align: middle; */
         align-items: center;
-
+        color: transparent;
+        cursor: pointer;
     }
+    .slide-button-next:hover {color: lightblue;
+    opacity: 0.7;}
 
     .slide-indicator {
         z-index: 51;
@@ -61,6 +73,7 @@ text-align: center;
     font-family: fantasy;
     color: white;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 
@@ -96,6 +109,10 @@ img {
 .active-dot {
     background-color: pink;
 }
+
+* {
+    transition: all 1s;
+}
 </style>
 <body>
     <h1>hahahahahhahahahahahha</h1>
@@ -122,7 +139,7 @@ img {
                 this.list = initList
                 this.count = this.list.length
                 this.current = 0
-                this.intervalTime = 1000
+                this.intervalTime = 3000
                 this.aniID = 0
             }
 
